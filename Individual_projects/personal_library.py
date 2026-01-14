@@ -13,6 +13,11 @@
 #put in list
 
 #search items
+#necessary info: defining trait for search
+#actions:
+#have user choose which trait to use
+#search list based on that
+#tell user which books match the search
 
 #remove items
 #info: get the number of the item to be removed
