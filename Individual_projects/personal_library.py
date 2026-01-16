@@ -28,13 +28,14 @@
 #remove item
 
 #Pseudocode
-#books = list with mini tuples of the book title and author
+#books = list with mini tuples of the book title and author first name and last name
 
 #add item function
 #parameters book info list
 #new_name = input new name
+#first, last = new_name.split(" ")
 #new_title = input new title
-#add a tuple of the name and title to books list
+#add a tuple of the names and title to books list
 #return books
 
 #remove items funtion
@@ -48,6 +49,18 @@
 #intake books list
 #choice = input ask it they want to search by author or title
 #searching = ask what it is they are looking for
-#result = 0
-#
+#result = []
+#use nested for loops to check the information in by books list to see if it matches the search
+#for item in range(books):
+    #for info in range(books[item])
+        #if info == searching
+            #result += item
+        #else:
+            #continue
+#use conditionals to check if there is a result
+#if ther was a result use a for loop to formate the info in a new list
+#return that list
+
+
+
 
