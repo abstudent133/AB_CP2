@@ -97,10 +97,25 @@
 
 
 #Code
-#books = main funtion
-books = []
+#save funtion
+def save_books(books):
+    file = open("library.txt", "w")
+    for book in books:
+        file.write(f"{book[0]}|{book[1]}|{book[2]}\n")
+    file.close()
 
-
+#load books funtion
+def load_books():
+    books = []
+    try:
+        file = open("library.txt", "r")
+        for line in file:
+            title, first, last = line.strip().split("|")
+            books.append([title, first, last])
+        file.close()
+    except FileNotFoundError:
+        books = []
+    return books
 #view function
 def view(books):
 #parameters are the book list
@@ -197,7 +212,7 @@ def search(books):
 #main function
 def main():
 #books list
-    books = []
+    books = load_books()
 #while loop
     while True:
         if books != []:
@@ -207,20 +222,19 @@ def main():
             "2. Add\n" \
             "3. Remove\n" \
             "4. Search\n" \
-            "5. Exit")
+            "5. Exit\n" \
+            "6. Delete library" \
+                )
             choice = int(input("Number: "))
         else:
             print("This is a personal library manager. Here are you options:\n" \
             "1. Add\n" \
-            "2. Remove\n" \
-            "3. Exit")            
+            "2. Exit")            
     #choice = choice of what to do
             choice = int(input("Number: "))
             if choice == 1:
                 choice = 2
             elif choice == 2:
-                choice = 3
-            elif choice == 3:
                 choice = 5
 #if choice is 1
         if choice == 1:
@@ -240,10 +254,14 @@ def main():
             print(search(books))
 #elif choice is 5
         elif choice == 5:
-    #print message about personal library
-            print("Thank you for using your personal library.")
-    #break
+            save_books(books)
+            print("Library saved. Thank you for using your personal library.")
             break
+#elif choice is 6:
+        elif choice == 6:
+            books = []
+            save_books(books)
+            print("Library reset.")
 #else:
         else:
     #print invalid choice
@@ -258,6 +276,3 @@ def main():
     return books
 
 main()
-
-
-
