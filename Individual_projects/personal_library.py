@@ -125,7 +125,7 @@ def add(books):
 #new_title = input new title
     title = input("Title: ").strip().title()
     print(f"You add {title} by {first} {last}")
-#add a list of the names and title to books list
+#add a tuple of the names and title to books list
     books.append((title,first,last))
     
 #return books
