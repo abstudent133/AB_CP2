@@ -126,43 +126,48 @@ def formating(movie_list):
 def main(movie_list):
     original_movies = movie_list.copy()
     #intake the movie_list
+    
     #while true
     while True:
-        movie_list = original_movies.copy()
-        #display all filter options
-        print("Your filter options are:\n" \
-        "1. Director\n" \
-        "2. Genre\n" \
-        "3. Actor\n" \
-        "4. Length\n" \
-        "You can pick as many as you want.")
-        #nums is asking the user which filters they want based on corrisponding numbers and to put a space between each
-        nums = input("Input your filter choices here: ")
-        #if "1" in nums:
-        if "1" in nums:
-            #movie_list = search(movie_list, director) 
-            movie_list = search(movie_list, "Director")
-        #if "2" in nums:
-        if "2" in nums:
-            #movie_list = search(movie_list, genre)
-            movie_list = search(movie_list, "Genre")
-        #if "3" in nums:
-        if "3" in nums:
-            #movie_list = search(movie_list, actor)
-            movie_list = search(movie_list, "Notable Actors")
-        #if "4" in nums:
-        if "4" in nums:
-            #movie_list = length(movie_list)
-            movie_list = length(movie_list)
-        #if none of the numbers were in nums then
-        if "1" not in nums and "2" not in nums and "3" not in nums and "4" not in nums:
-            #tell user that that was an invalid input
-            print("Sorry that was an invalid input.")
-        #print(format(movie_list)) 
-        if movie_list != []:
-            print(formating(movie_list))
+        choice = input("Would you like to see all the movies(1) or get a recommendation(2)? Input the number of you choice here: ").strip()
+        if choice == "1":
+            print(formating(original_movies))
         else:
-            print("Sorry, there are no movies that fit these filters.")
+            movie_list = original_movies.copy()
+            #display all filter options
+            print("Your filter options are:\n" \
+            "1. Director\n" \
+            "2. Genre\n" \
+            "3. Actor\n" \
+            "4. Length\n" \
+            "You can pick as many as you want.")
+            #nums is asking the user which filters they want based on corrisponding numbers and to put a space between each
+            nums = input("Input your filter choices here: ")
+            #if "1" in nums:
+            if "1" in nums:
+                #movie_list = search(movie_list, director) 
+                movie_list = search(movie_list, "Director")
+            #if "2" in nums:
+            if "2" in nums:
+                #movie_list = search(movie_list, genre)
+                movie_list = search(movie_list, "Genre")
+            #if "3" in nums:
+            if "3" in nums:
+                #movie_list = search(movie_list, actor)
+                movie_list = search(movie_list, "Notable Actors")
+            #if "4" in nums:
+            if "4" in nums:
+                #movie_list = length(movie_list)
+                movie_list = length(movie_list)
+            #if none of the numbers were in nums then
+            if "1" not in nums and "2" not in nums and "3" not in nums and "4" not in nums:
+                #tell user that that was an invalid input
+                print("Sorry that was an invalid input.")
+            #print(format(movie_list)) 
+            if movie_list != []:
+                print(formating(movie_list))
+            else:
+                print("Sorry, there are no movies that fit these filters.")
         #quit = ask user if they would like to quit
         quit_choice = input("Would you like to quit? If you would like to quit put 1 and if you wouldn't then put 2: ")
         #if yes then break
