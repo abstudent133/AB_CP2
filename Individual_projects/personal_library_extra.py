@@ -114,7 +114,7 @@ def search(books):
 #main function
 def main():
 #books list
-    books = load_books()
+    books = loadBooks()
 #while loop
     while True:
         if books != []:
