@@ -1,6 +1,6 @@
 #Code
 #save funtion
-def saveBooks(books):
+def save_books(books):
     file = open("library.txt", "w")
     for book in books:
         file.write(f"{book[0]}|{book[1]}|{book[2]}\n")
