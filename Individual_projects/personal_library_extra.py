@@ -52,7 +52,7 @@ def add(books):
     year = input("Year published:")
     print(f"You add: Title:{title} Author:{first} {last} Genre: {genre} Year Published: {year}")
 #add a list of the names and title to books list
-    books.append((title,first,last,genre,year))
+    books.append({"title":title,"first":first,"last":last,"genre":genre,"year":year})
     
 #return books
     return books
