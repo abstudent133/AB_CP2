@@ -3,7 +3,7 @@
 def save_books(books):
     file = open("library.txt", "w")
     for book in books:
-        file.write(f"{book[0]}|{book[1]}|{book[2]}\n")
+        file.write(f"{book[0]}|{book[1]}|{book[2]}|{book[3]}|{book[4]}\n")
     file.close()
 
 #load books funtion
@@ -12,8 +12,8 @@ def load_books():
     try:
         file = open("library.txt", "r")
         for line in file:
-            title, first, last = line.strip().split("|")
-            books.append([title, first, last])
+            title, first, last, genre, year = line.strip().split("|")
+            books.append({"title": title, "first":first,"last": last,"genre": genre,"year": year})
         file.close()
     except FileNotFoundError:
         books = []
@@ -26,10 +26,12 @@ def view(books):
 #for each of the tuples in book list
     for i in range(len(books)):
 #format it 
-        title = books[i][0]
-        first = books[i][1]
-        last = books[i][2]
-        result += f"{title} by {first} {last}\n"
+        title = books[i]["title"]
+        first = books[i]["first"]
+        last = books[i]["last"]
+        genre = books[i]["genre"]
+        year = books[i]["year"]
+        result += f"Title:{title} Author:{first} {last} Genre:{genre} Year Created:{year} \n"
 #add it to result
 #return result
     return result
@@ -38,16 +40,19 @@ def view(books):
 def add(books):
 #parameters book info list
 #print instructions
-    print("Please input the first and last name of the author and title of the book. ")
+    print("Please input the first and last name of the author, the title, the genre, and the year the book was published. ")
+    print("If you don't know the information just type N/A.")
 #new_name = input new name
     first = input("First name: ").strip().title()
     last = input("Last name: ").strip().title()
 #print instruction
 #new_title = input new title
     title = input("Title: ").strip().title()
-    print(f"You add {title} by {first} {last}")
+    genre = input("Genre:").strip().title()
+    year = input("Year published:")
+    print(f"You add: Title:{title} Author:{first} {last} Genre: {genre} Year Published: {year}")
 #add a list of the names and title to books list
-    books.append((title,first,last))
+    books.append((title,first,last,genre,year))
     
 #return books
     return books
@@ -60,10 +65,12 @@ def remove(books):
     result = ""
     num = 1
     for i in range(len(books)):
-        title = books[i][0]
-        first = books[i][1]
-        last = books[i][2]
-        result += f"{num}. {title} by {first} {last}\n"
+        title = books[i]["title"]
+        first = books[i]["first"]
+        last = books[i]["last"]
+        genre = books[i]["genre"]
+        year = books[i]["year"]
+        result += f"{num}. Title:{title} Author:{first} {last} Genre: {genre} Year Published: {year}\n"
         num += 1
     print(result)
 #choice = the number of the book they want to remove
@@ -71,7 +78,7 @@ def remove(books):
     choice = int(input("Number: "))
 #remove the book by taking the number choice subtracting 1 and poping that index
     remove = books.pop(choice-1)
-    print(f"You removed {remove[0]} by {remove[1]} {remove[2]}")
+    print(f"You removed: Title:{remove["title"]} Author:{remove["first"]} {remove["last"]} Genre: {remove["genre"]} Year Published: {remove["year"]}")
   
 #return books list
     return books
@@ -92,14 +99,14 @@ def search(books):
 #use nested for loops to check the information in by books list to see if it matches the search
     num = 0
     if choice == 1:
-        num = 1
+        num = "first"
     elif choice == 2:
-        num = 2
+        num = "last"
     elif choice == 3:
-        num = 0
+        num = "title"
     for item in range(len(books)):
         if books[item][num].lower() == searching.lower():
-            result += f"{books[item][0]} by {books[item][1]} {books[item][2]}\n"
+            result += f"Title:{books[item]["title"]} Author:{books[item]["first"]} {books[item]["last"]} Genre:{books[item]["genre"]} Year Published:{books[item]["year"]} \n"
         else:
             continue
         
