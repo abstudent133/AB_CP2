@@ -7,7 +7,7 @@ def save_books(books):
     file.close()
 
 #load books funtion
-def loadBooks():
+def load_books():
     books = []
     try:
         file = open("library.txt", "r")
@@ -114,7 +114,7 @@ def search(books):
 #main function
 def main():
 #books list
-    books = loadBooks()
+    books = load_books()
 #while loop
     while True:
         if books != []:
