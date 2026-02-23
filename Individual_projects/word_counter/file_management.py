@@ -150,33 +150,61 @@ def update_info(relative_path):
     #word_count is word_count_func
     word_count = word_count_func(relative_path)
     #formate time and word_count into a multi-line string
-    formate = f"""Words: {word_count}
+    formate = f"""
+    Words: {word_count}
     Last Updated: {time}"""
     #try to open the file with relative path and read+ as file
     try:
         #read each line and turn it into a string
+        with open(relative_path, "r+") as file:
+            string = """"""
+            for line in file:
+                string += line
+            string_total = string + formate
         #add to the bottom of that string
         #write over the current file with this one
+            file.write(string_total)
         #close the file
     #except open a file with relative path and write as file
+    except:
+        with open(relative_path, "w") as file:
         #write a new file
         #write the formated word_count and time string
+            file.write(formate)
         #close file
     #print that the file was updated and show word count
+    print(f"File updated. Word count: {word_count}")
 
 #word_counter_func
+def word_count_func(relative_path):
 #parameters:relative_path
     #try opening file with relative path as file
+    try:
+        with open(relative_path,"r") as file:
+            string = """"""
         #read the file and turn it into a string
+            for line in file:
+                string += line
         #split the string at the first enter
+            parts = string.split("" \
+            "")
         #words is the string the user wrote.split
+            words = parts[0].split()
         #count is len(string)
+            count = len(words)
     #except:
+    except:
         #count is 0
+        count = 0
     #return count
+    return count
 
 #relative_path_func
+def relative_path_func():
 #parameters:none
     #tell user what a relative path is 
+    print("To access your file you must enter the relative path. To do so right click on your file and click the button that says copy relative path.")
     #ask user for the relative path
+    relative_path = input("Pleas input that here: ")
     #return relative path
+    return relative_path
