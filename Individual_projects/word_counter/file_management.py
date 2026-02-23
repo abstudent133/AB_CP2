@@ -63,4 +63,36 @@
     #return the string with what the user wrote
 
 #update info function
+#parameters: relative path
+    #create the variable time as the time function
+    #word_count is word_count_func
+    #formate time and word_count into a multi-line string
+    #try to open the file with relative path and read+ as file
+        #read each line and turn it into a string
+        #add to the bottom of that string
+        #write over the current file with this one
+        #close the file
+    #except open a file with relative path and write as file
+        #write a new file
+        #write the formated word_count and time string
+        #close file
+    #print that the file was updated and show word count
+
+#word_counter_func
+#parameters:relative_path
+    #try opening file with relative path as file
+        #read the file and turn it into a string
+        #split the string at the first enter
+        #words is the string the user wrote.split
+        #count is len(string)
+    #except:
+        #count is 0
+    #return count
+
+#relative_path_func
+#parameters:none
+    #tell user what a relative path is 
+    #ask user for the relative path
+    #return relative path
+
 
