@@ -10,13 +10,15 @@
 
 #Pseudocode
 
-#import time
-import time
+#import datetime
+from datetime import datetime
 
-#time_func
-def time_func():
+#time function
 #parameters: none
-    #current time is the current time using .localtime from the time library
-    current_time = time.localtime()
-    #formated time is strftime function from the time library
-    #return formated time
+def time_func():
+    #now is the time it is now
+    now = datetime.now() 
+    #formatted time is the time in the correct formate
+    formatted_time = now.strftime("%B %d, %Y at %I:%M %p")
+    #return formatted time
+    return formatted_time

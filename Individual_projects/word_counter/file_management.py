@@ -100,10 +100,8 @@
 import time_management
 
 #open_file function
-def open_file(action):
-#parameters: action
-    #relative_path = call relative_path_func()
-    relative_path = relative_path_func()
+def open_file(action, relative_path):
+#parameters: action, relative_path
     #if action is view
     if action == "view":
         #try to open the file with relative path and read as file:
@@ -114,12 +112,11 @@ def open_file(action):
                 for line in file:
                     string += line
             #split the huge string at the first enter
-            parts = string.split("" \
-            "")
+            parts = string.split("\n\n")
             #display the first part that is the part they've writen
             print(parts[0])
         #except if that doesn't work
-        except:
+        except FileNotFoundError:
             #open a file with the relative path and read and write as file
             with open(relative_path, "w") as file:
             #display a message about an empty document
@@ -132,25 +129,25 @@ def open_file(action):
         with open(relative_path, "r+") as file:
             string = file.read()
         #split at the first enter
-            parts = string.split("" \
-            "")
+            parts = string.split("\n\n")
         #append the new stuff to the first part of the split
-            parts[0].append(add_this)
-            for part in parts:
-                string_two += part
+            parts[0] += "\n" + add_this
+            string_two = "\n\n".join(parts)
         #write the new stuff into the file
+            file.seek(0)
             file.write(string_two)
+            file.truncate()
 
 
 #update info function
 def update_info(relative_path):
 #parameters: relative path
     #create the variable time as the time function
-    time = time_func()
+    time = time_management.time_func()
     #word_count is word_count_func
     word_count = word_count_func(relative_path)
     #formate time and word_count into a multi-line string
-    formate = f"""
+    formate = f"""  
     Words: {word_count}
     Last Updated: {time}"""
     #try to open the file with relative path and read+ as file
@@ -160,13 +157,18 @@ def update_info(relative_path):
             string = """"""
             for line in file:
                 string += line
-            string_total = string + formate
+            parts = string.split("\n\n")
+            document_text = parts[0]
+
+            string_total = document_text + "\n\n" + formate
         #add to the bottom of that string
         #write over the current file with this one
+            file.seek(0)
             file.write(string_total)
+            file.truncate()
         #close the file
     #except open a file with relative path and write as file
-    except:
+    except FileNotFoundError:
         with open(relative_path, "w") as file:
         #write a new file
         #write the formated word_count and time string
@@ -186,14 +188,13 @@ def word_count_func(relative_path):
             for line in file:
                 string += line
         #split the string at the first enter
-            parts = string.split("" \
-            "")
+            parts = string.split("\n\n")
         #words is the string the user wrote.split
             words = parts[0].split()
         #count is len(string)
             count = len(words)
     #except:
-    except:
+    except FileNotFoundError:
         #count is 0
         count = 0
     #return count
@@ -205,6 +206,6 @@ def relative_path_func():
     #tell user what a relative path is 
     print("To access your file you must enter the relative path. To do so right click on your file and click the button that says copy relative path.")
     #ask user for the relative path
-    relative_path = input("Pleas input that here: ")
+    relative_path = input("Please input that here: ")
     #return relative path
     return relative_path
