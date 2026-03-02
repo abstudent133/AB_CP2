@@ -50,16 +50,10 @@ def sierpinski(depth, length):
         #call the sierpinski function with half the length and depth - 1
         sierpinski(depth-1, length/2)
         #move to the tip of this triangle
-        t.backward(length/2)
-        t.left(60)
         t.forward(length/2)
-        t.right(60)
         #call the sierpinski function with half the length and depth - 1\
         sierpinski(depth-1, length/2)
         # Return to original position
-        t.left(60)
-        t.backward(length/2)
-        t.right(60)
 
 def draw(length):
 #draw function
@@ -94,7 +88,8 @@ def main():
             #depth is ask user for the depth out of five
             depth = int(input("Please enter a depth out of five for the pattern: "))
             #call the sierpinski function with depth and 200 as the length
-            sierpinski(depth, 200)
+            sierpinski(depth, 400)
+            t.done()
         #else if exit
         elif choice == "2":
             #break
