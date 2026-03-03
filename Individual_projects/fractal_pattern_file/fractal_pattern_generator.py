@@ -72,11 +72,12 @@ def draw(length):
 #draw function
 #parameters: length
     #for 3 times
+    t.left(60)
     for i in range(3):
-        #go forward length
         t.forward(length)
-        #turn 120 degrees to the right
         t.right(120)
+    # Reset heading
+    t.right(60)
 
 
 
