@@ -31,6 +31,9 @@ def main():
             if depth in range(1,6):
             #call the sierpinski function with depth and 200 as the length
                 fractal_pattern_generator.sierpinski(depth, 400)
+            else:
+                print("Invalide depth choice.")
+                continue
         #else if exit
         elif choice == "2":
             #break
