@@ -13,4 +13,10 @@
 #show that formated list to the user
 #or they quit
 
+#viewing all shapes
+#parameters: none
+#actions:
+#open the file
+#take each and turn it into a dictionary
+#print the information of each dictionary nicely
 
