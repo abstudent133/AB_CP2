@@ -34,24 +34,48 @@
 #import math
 
 #rectangle class
+class Rectangle:
     #initiate(self, length 1, length 2)
+    def __init__(self, length_1, length_2)
         #initiate length 1 and 2 with self
+        self.len_1 = length_1
+        self.len_2 = length_2
     #string(self, perimeter, area)
+    def __str__(self,perimeter,area):
         #formate all the necessary information collected
+        string = f"""Rectangle: {self}
+Side 1: {self.len_1}
+Side 2: {self.len_2}
+Perimeter: {perimeter}
+Area: {area}"""
+        return string
     #perimeter(self)
+    def perimeter(self):
         #2x length 1
         #2x length 2
         #add it all together
+        peri = 2*self.len_1 + 2*self.len_2
         #return that
+        return peri
     #area(self)
+    def area(self):
         #mulitply length 1 by length 2
+        are = self.len_1*self.len_2
         #return that
+        return are
 
 #square class
+class Square:
     #initiate(self, length)
+    def __init__(self,length):
         #initiate length with self
+        self.length = length
     #string(self, area, perimeter)
+    def __str__(self,perimeter,area):
         #formate length, perimeter, and area
+        string = f"""Square: {self}
+Length: {self.length}
+"""
     #perimeter(self)
         #4x length
     #area(self)
