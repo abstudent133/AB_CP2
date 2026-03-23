@@ -20,3 +20,17 @@
 #take each and turn it into a dictionary
 #print the information of each dictionary nicely
 
+#Pseudocode
+
+#Viewing equations
+#parameters: none
+    #create a list of all the equations
+    #formate the list
+    #print it out
+
+#view all shapes list
+#paramters:
+    #call list function
+    #formate the information in that list
+    #print it out
+
