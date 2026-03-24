@@ -21,16 +21,46 @@
 #print the information of each dictionary nicely
 
 #Pseudocode
+#Import helper
+from helper import *
 
 #Viewing equations
+def viewing_equations():
 #parameters: none
     #create a list of all the equations
     #formate the list
     #print it out
+    print("""---EQUATIONS---
+          Rectangle:
+          perimeter- (Length 1 x 2) + (Length 2 x 2)
+          area- Length 1 x Length 2
+          
+          Square:
+          perimeter- Length x 4
+          area- Length squared
+
+          Circle:
+          diameter- Radius x 2
+          perimeter- 2 x Radius x pi
+          area- Radius squared x pi
+
+          Triangle:
+          perimeter- Length 1 + Length 2 + Length 3
+          area- (Base x Height)/2
+          """)
 
 #view all shapes list
-#paramters:
+def view_shapes():
+#paramters: none
     #call list function
+    list = list_creation()
     #formate the information in that list
-    #print it out
+    for item in list:
+        string = f"""{item.get("type").capitalize()} {item.get("name").capitalize()}:
+Perimeter: {item.get("perimeter").capitalize()}
+Area: {item.get("area").capitalize()}
+"""
+        print(string)
+    #print it outc
+    
 

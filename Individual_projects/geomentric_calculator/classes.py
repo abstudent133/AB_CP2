@@ -32,81 +32,122 @@
 
 #Pseudocode
 #import math
+import math
 
 #rectangle class
 class Rectangle:
     #initiate(self, length 1, length 2)
-    def __init__(self, length_1, length_2)
+    def __init__(self,name, length_1, length_2):
         #initiate length 1 and 2 with self
         self.len_1 = length_1
         self.len_2 = length_2
+        self.name = name
     #string(self, perimeter, area)
-    def __str__(self,perimeter,area):
+    def __str__(self):
         #formate all the necessary information collected
-        string = f"""Rectangle: {self}
+        return f"""Rectangle: {self.name}
 Side 1: {self.len_1}
 Side 2: {self.len_2}
-Perimeter: {perimeter}
-Area: {area}"""
-        return string
+Perimeter: {self.perimeter()}
+Area: {self.area()}"""
     #perimeter(self)
     def perimeter(self):
         #2x length 1
         #2x length 2
         #add it all together
-        peri = 2*self.len_1 + 2*self.len_2
-        #return that
-        return peri
+        return 2*self.len_1 + 2*self.len_2
     #area(self)
     def area(self):
         #mulitply length 1 by length 2
-        are = self.len_1*self.len_2
-        #return that
-        return are
+        return self.len_1*self.len_2
 
 #square class
 class Square:
     #initiate(self, length)
-    def __init__(self,length):
+    def __init__(self,name,length):
         #initiate length with self
         self.length = length
+        self.name = name
     #string(self, area, perimeter)
-    def __str__(self,perimeter,area):
+    def __str__(self):
         #formate length, perimeter, and area
-        string = f"""Square: {self}
+        return f"""Square: {self.name}
 Length: {self.length}
+Perimeter: {self.perimeter()}
+Area: {self.area()}
 """
     #perimeter(self)
+    def perimeter(self):
         #4x length
+        return 4*self.length
     #area(self)
+    def area(self):
         #length^2
+        return self.length**2
 
 #circle class
+class Circle:
     #initiate(self, radius)
+    def __init__(self,name, radius):
         #initiate radius with self
+        self.radius = radius
+        self.name = name
     #string(self, area, perimeter)
+    def __str__(self):
+        return f"""Circle: {self.name}
+Radius: {self.radius}
+Perimeter: {self.perimeter()}
+Area: {self.area()}
+Diameter: {self.diameter()}"""
         #formate radius, perimeter, area, diameter
     #perimeter(self)
+    def perimeter(self):
         #2x 3.14x radius
-        #return that number
+        return round((self.radius*2*math.pi),2)
     #area(self)
+    def area(self):
         #radius x 3.14^2
-        #return that number
+        return round((self.radius**2*math.pi),2)
+    #Diameter(self)
+    def diameter(self):
+        #radius*2
+        return self.radius*2
 
 #triangle class
+class Triangle:
     #initiate(self, part of base 1, part of base 2, height)
+    def __init__(self, name,base_1, base_2, height):
         #initiate all of these with self
+        self.base_1 = base_1
+        self.base_2 = base_2
+        self.height = height
+        self.name = name
     #string(self,area, perimeter)
+    def __str__(self):
+        return f"""Triangle: {self.name}
+Base: {self.base()}
+Perimeter: {self.perimeter()}
+Area: {self.area()}"""
         #formate of the information
     #perimeter(self)
+    def perimeter(self):
         #add both sides of the base together
         #add one side of the base squared and the height squared
+        side_1 = math.sqrt(self.base_1**2+self.height**2)
+        side_2 = math.sqrt(self.base_2**2+self.height**2)
         #square root the second number
         #round that number with the rounding function
         #repeat that for both sides of the base
         #add the square rooted numbers plus the lenght of the base
         #return that number
+        return side_1+ side_2 + self.base()
     #area(self)
+    def area(self):
         #base length times the height
         #return the number
+        return self.base()*self.height
+    #base(self)
+    def base(self):
+        #add bases together
+        return (self.base_1+ self.base_2)/2
 
