@@ -140,7 +140,7 @@ Area: {self.area()}"""
         #repeat that for both sides of the base
         #add the square rooted numbers plus the lenght of the base
         #return that number
-        return side_1+ side_2 + self.base()
+        return round(side_1+ side_2 + self.base(),2)
     #area(self)
     def area(self):
         #base length times the height

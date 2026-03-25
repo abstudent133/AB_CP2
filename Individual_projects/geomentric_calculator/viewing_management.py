@@ -53,14 +53,24 @@ def viewing_equations():
 def view_shapes():
 #paramters: none
     #call list function
-    list = list_creation()
+    shape_list = list_creation()
     #formate the information in that list
-    for item in list:
-        string = f"""{item.get("type").capitalize()} {item.get("name").capitalize()}:
-Perimeter: {item.get("perimeter").capitalize()}
-Area: {item.get("area").capitalize()}
+    num = 1
+    for item in shape_list:
+        string = f"""{num}. {item.get("type")} {item.get("name")}:
+Perimeter: {item.get("perimeter")}
+Area: {item.get("area")}
 """
+        num+=1
         print(string)
-    #print it outc
-    
-
+    print("Would you like to select a shape to get more information? ")
+    choice = input("Yes or no? If yes put 1 and if no put 2 here: ")
+    string = f""""""
+    if choice == "1":
+        select = int(input("Please input the number of the shape you would like to inspect here: "))
+        specific_dict = shape_list[select-1]
+        for key in specific_dict.keys():
+            string = string + f"{key.capitalize()}: {specific_dict.get(key)}\n"
+        print(string)
+    elif choice == "2":
+        print("Okay. Going back to main menu.")

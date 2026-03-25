@@ -29,6 +29,7 @@
 def pos_num_sanitation(num):
 #parameters: number
     #if the number is greater than 0 return the number
+    num = float(num)
     if num > 0:
         return num
     #else
@@ -52,44 +53,49 @@ def list_creation():
 #parameters: none
     #create an empty list
     dict_list = []
+    dicti = {}
     #with open the file to read
     with open("Individual_projects/geomentric_calculator/docs/shapes.txt","r") as file:
         #read all the information
         string = file.read()
         #separate it into the different shapes and its info
-        list = string.split("\n\n")
+        shape_blocks = string.split("\n\n")
         #for each of those shapes turn its info into a dictionary
-        for thing in list:
+        for thing in shape_blocks:
+            if not thing.strip():
+                continue
             #use a conditional to make the right dictionary for each shape
             parts = thing.split("\n")
             if parts[0]=="rectangle":
                 dicti = {"type": "rectangle",
                         "name": parts[1],
-                        "length 1": parts[2],
-                        "length 2": parts[3],
-                        "perimeter": parts[4],
-                        "area": parts[5]}
+                        "length 1": float(parts[2]),
+                        "length 2": float(parts[3]),
+                        "perimeter": float(parts[4]),
+                        "area": float(parts[5])}
             elif parts[0] == "square":
                 dicti = {"type": "square",
                         "name": parts[1],
-                        "length 1": parts[2],
-                        "perimeter": parts[3],
-                        "area": parts[4]}
+                        "length 1": float(parts[2]),
+                        "perimeter": float(parts[3]),
+                        "area":float(parts[4])}
             elif parts[0] == "circle":
                 dicti = {"type": "circle",
                         "name": parts[1],
-                        "radius": parts[2],
-                        "diameter": parts[3],
-                        "perimeter": parts[4],
-                        "area": parts[5]}
+                        "radius": float(parts[2]),
+                        "diameter": float(parts[3]),
+                        "perimeter": float(parts[4]),
+                        "area": float(parts[5])}
             elif parts[0] == "triangle":
                 dicti = {"type": "triangle",
                         "name": parts[1],
-                        "base 1": parts[2],
-                        "base 2": parts[3],
-                        "length": parts[4],
-                        "perimeter": parts[5],
-                        "area": parts[6]}
+                        "base 1": float(parts[2]),
+                        "base 2": float(parts[3]),
+                        "length": float(parts[4]),
+                        "perimeter": float(parts[5]),
+                        "area": float(parts[6])}
+            else:
+                continue
             dict_list.append(dicti)
             #add it to the list
     #return the list
