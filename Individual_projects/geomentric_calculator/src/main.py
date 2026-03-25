@@ -1,7 +1,7 @@
 #Main User Interface
 
 #Pseudocode
-from shape_management import *
+from Individual_projects.geomentric_calculator.src.shape_management import *
 from viewing_management import *
 
 #main function
