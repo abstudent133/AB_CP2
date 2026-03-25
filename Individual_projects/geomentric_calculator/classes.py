@@ -145,9 +145,9 @@ Area: {self.area()}"""
     def area(self):
         #base length times the height
         #return the number
-        return self.base()*self.height
+        return (self.base()*self.height)/2
     #base(self)
     def base(self):
         #add bases together
-        return (self.base_1+ self.base_2)/2
+        return self.base_1+ self.base_2
 
