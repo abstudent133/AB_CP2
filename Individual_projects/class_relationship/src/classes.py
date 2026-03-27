@@ -35,7 +35,7 @@
 #Pseudocode
 
 #student class
-#parameters: student_id, student_name, list of grades
+#parameters: student_id, student_name, grades_list = []
     #initiate all things with self
     #string
         #take all the information including the info found using other methods and formate it in a pretty way
@@ -55,7 +55,25 @@
         #use conditionals based on letter grade list to get the correct letter grade
 
 #GradeBook class
-#parameters:none
-#initiate
-#add students
+#parameters:list of students
+    #initiate list of students with self
+    #add students
+        #ask user for student id
+        #ask user for student name
+        #add student to list of students
+        #show information about student
+    #find student
+        #show all the students
+        #for each student formate the information in the list in a neat way
+        #ask which student they want from their id
+        #show information on the student
+    #class summary
+        #get all the average grades of the students
+        #add them
+        #divide them by the number
+        #then get the highest and lowest scores and the total number of students
+        #display this along with each student
+    #
+
+
 
