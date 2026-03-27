@@ -54,3 +54,8 @@
         #letter_grade_list
         #use conditionals based on letter grade list to get the correct letter grade
 
+#GradeBook class
+#parameters:none
+#initiate
+#add students
+
