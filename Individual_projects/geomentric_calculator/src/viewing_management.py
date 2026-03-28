@@ -22,7 +22,7 @@
 
 #Pseudocode
 #Import helper
-from Individual_projects.geomentric_calculator.src.helper import *
+from helper import *
 
 #Viewing equations
 def viewing_equations():

@@ -42,8 +42,8 @@
 
 #Pseudocode
 #import helper
-from Individual_projects.geomentric_calculator.src.helper import *
-import Individual_projects.geomentric_calculator.src.classes as classes
+from helper import *
+import classes as classes
 
 #create new shape function
 def new_shape():
