@@ -27,6 +27,14 @@
 #if not positive then restart the loop
 #if it is then return that number
 
+#get current students
+#parameters:none
+#acions:
+#open the file
+#get the header(so it isn't used)
+#get the value from each line and turn it into a dictionary
+#add that dictionary to a list
+
 #Pseudocode
 #import csv
 import csv
