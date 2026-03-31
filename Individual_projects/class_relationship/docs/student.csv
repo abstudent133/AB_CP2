@@ -1,1 +1,2 @@
-student_id, student_name, grade_percentage, letter_grade, list_of_grades
+student id,student name,grade percentage,letter grade,grades
+12345,Anna,99.0,A,99.0
