@@ -3,7 +3,7 @@
 
 
 #import graphics
-from universal_helper.graphics_tkinter import *
+from graphics_tkinter import *
 import geomentric_calculator.src.main
 import movie_recomender_folder.movie_recommeder
 import class_relationship.src.main
