@@ -14,8 +14,8 @@ class Menu:
         #show window
         while True:
             root=tkinter.Tk()
-            root.title('Personal Finance')
-            root.configure(background='black')
+            root.title('Personal Portfolio')
+            root.configure(background='pink')
             root.minsize(500,500)
             root.maxsize(1000,1000)
             root.geometry('700x700+1300+500')
@@ -43,8 +43,8 @@ def inputs(question,wrong=False):
     while True:
         #create window, show question and text box
         root=tkinter.Tk()
-        root.title('Personal Finance')
-        root.configure(background='black')
+        root.title('Personal Portfolio')
+        root.configure(background='pink')
         root.minsize(500,500)
         root.maxsize(1000,1000)
         root.geometry('700x700+1300+500')
@@ -74,8 +74,8 @@ def inputs(question,wrong=False):
 def show(stuff):
     #create window and display stuff
     root=tkinter.Tk()
-    root.title('Personal Finance')
-    root.configure(background='black')
+    root.title('Personal Portfolio')
+    root.configure(background='pink')
     root.minsize(500,500)
     root.maxsize(1000,1000)
     root.geometry('700x700+1300+500')
