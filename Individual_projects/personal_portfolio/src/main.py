@@ -5,10 +5,10 @@
 #import graphics
 try:
     from graphics_tkinter import *
-    import geometric_calculator.src.main 
-    import movie_recomender_folder.movie_recommeder
-    import class_relationship.src.main
-    import morse_code
+    from geometric_calculator.src import main as calc_main
+    from movie_recomender_folder import movie_recommeder
+    from class_relationship.src import main as cls_main
+    import Individual_projects.morse_code as morse_code
 except ModuleNotFoundError:
     pass
 
@@ -37,7 +37,7 @@ def main_portfolio():
             play = Menu(["Run Program","Exit"]).use()
             if play == "Run Program":
                 try:
-                    movie_recomender_folder.movie_recommeder.main()
+                    movie_recommeder.main()
                 except ModuleNotFoundError:
                     show("Sorry this project can't be run at the moment. It will be fixed as soon as possible.")
             else:
@@ -59,7 +59,7 @@ def main_portfolio():
             play = Menu(["Run Program","Exit"]).use()
             if play == "Run Program":
                 try:
-                    geometric_calculator.src.main.main()
+                    calc_main.main()
                 except ModuleNotFoundError:
                     show("Sorry this project can't be run at the moment. It will be fixed as soon as possible.")
             else:
@@ -80,7 +80,7 @@ def main_portfolio():
             play = Menu(["Run Program","Exit"]).use()
             if play == "Run Program":
                 try:
-                    class_relationship.src.main.main()
+                    cls_main.main()
                 except ModuleNotFoundError:
                     show("Sorry this project can't be run at the moment. It will be fixed as soon as possible.")
             else:
