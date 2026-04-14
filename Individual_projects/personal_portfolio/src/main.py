@@ -4,7 +4,7 @@
 
 #import graphics
 from graphics_tkinter import *
-import geomentric_calculator.src.main
+import geometric_calculator.src.main 
 import movie_recomender_folder.movie_recommeder
 import class_relationship.src.main
 import morse_code
@@ -32,7 +32,10 @@ def main_portfolio():
             show(stuff)
             play = Menu(["Run Program","Exit"]).use()
             if play == "Run Program":
-                movie_recomender_folder.movie_recommeder.main()
+                try:
+                    movie_recomender_folder.movie_recommeder.main()
+                except ModuleNotFoundError:
+                    show("Sorry this project can't be run at the moment. It will be fixed as soon as possible.")
             else:
                 continue
         elif menu == "Geometric Calculator":
@@ -51,7 +54,10 @@ def main_portfolio():
             show(stuff)
             play = Menu(["Run Program","Exit"]).use()
             if play == "Run Program":
-                geomentric_calculator.src.main.main()
+                try:
+                    geometric_calculator.src.main.main()
+                except ModuleNotFoundError:
+                    show("Sorry this project can't be run at the moment. It will be fixed as soon as possible.")
             else:
                 continue
         elif menu == "Simple Gradebook":
@@ -69,7 +75,10 @@ def main_portfolio():
             show(stuff)
             play = Menu(["Run Program","Exit"]).use()
             if play == "Run Program":
-                class_relationship.src.main.main()
+                try:
+                    class_relationship.src.main.main()
+                except ModuleNotFoundError:
+                    show("Sorry this project can't be run at the moment. It will be fixed as soon as possible.")
             else:
                 continue
         elif menu == "Morse Code Translator":
@@ -87,7 +96,10 @@ def main_portfolio():
             show(stuff)
             play = Menu(["Run Program","Exit"]).use()
             if play == "Run Program":
-                morse_code.main()
+                try:
+                    morse_code.main()
+                except ModuleNotFoundError:
+                    show("Sorry this project can't be run at the moment. It will be fixed as soon as possible.")
             else:
                 continue
         elif menu == "Exit":
