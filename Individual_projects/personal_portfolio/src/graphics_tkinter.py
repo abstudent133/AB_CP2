@@ -1,90 +1,145 @@
 
-import matplotlib.pyplot as tkinter
+import tkinter
 
 
-#create class menu
 class Menu:
-    #create function init, get options'
-    def __init__(self,options):
-        #create window with boxes for every option
-        self.options=options
+    def __init__(self, options):
+        self.options = options
 
-    #create function use
     def use(self):
-        #show window
-        while True:
-            root=tkinter.Tk()
-            root.title('Personal Portfolio')
-            root.configure(background='pink')
-            root.minsize(500,500)
-            root.maxsize(1000,1000)
-            root.geometry('700x700+1300+500')
-            self.out=tkinter.StringVar()
-            #return option clicked
-            def push(name):
-                self.out=name
-                root.destroy()
-            #check for box click
-            buttons=[]
-            for v in self.options:
-                buttons.append(tkinter.Button(root,text=v,command=lambda v=v: push(v)))
-            for v,i in enumerate(buttons):
-                i.pack()
-                i.place(x=100,y=700/len(self.options)*(v+0.42))
-            root.mainloop()
-            try:
-                return self.out
-            except:
-                pass
+        root = tkinter.Tk()
+        root.title('Personal Portfolio')
+        root.configure(bg='pink')
+        root.geometry('500x500')
+
+        self.out = tkinter.StringVar()
+
+        def push(name):
+            self.out.set(name)
+            root.destroy()
+
+        # Title label
+        title = tkinter.Label(
+            root,
+            text="Choose an Option",
+            bg='pink',
+            font=("Arial", 18, "bold")
+        )
+        title.pack(pady=20)
+
+        # Button frame (keeps things centered)
+        frame = tkinter.Frame(root, bg='pink')
+        frame.pack(expand=True)
+
+        for option in self.options:
+            btn = tkinter.Button(
+                frame,
+                text=option,
+                command=lambda v=option: push(v),
+                width=20,
+                height=2,
+                font=("Arial", 12)
+            )
+            btn.pack(pady=10)
+
+        root.mainloop()
+
+        return self.out.get()
         
 
-#create function inputs, get question and wrong
-def inputs(question,wrong=False):
+def inputs(question, wrong=False):
     while True:
-        #create window, show question and text box
-        root=tkinter.Tk()
+        root = tkinter.Tk()
         root.title('Personal Portfolio')
-        root.configure(background='pink')
-        root.minsize(500,500)
-        root.maxsize(1000,1000)
-        root.geometry('700x700+1300+500')
-        out=tkinter.StringVar()
-        enter=tkinter.Entry(root,width=50,textvariable=out)
-        enter.pack()
-        enter.place(x=200,y=350)
-        q=tkinter.Label(root,text=question)
-        q.pack()
-        q.place(x=250,y=300)
-        #return text box entry
+        root.configure(bg='pink')
+        root.geometry('500x400')
+
+        out = tkinter.StringVar()
+
+        # Main frame (centers everything)
+        frame = tkinter.Frame(root, bg='pink')
+        frame.pack(expand=True)
+
+        # Question label
+        q = tkinter.Label(
+            frame,
+            text=question,
+            bg='pink',
+            font=("Arial", 14)
+        )
+        q.pack(pady=10)
+
+        # Error message
+        if wrong:
+            error = tkinter.Label(
+                frame,
+                text='Invalid input. Try again.',
+                fg='red',
+                bg='pink',
+                font=("Arial", 10, "bold")
+            )
+            error.pack(pady=5)
+
+        # Entry box
+        enter = tkinter.Entry(
+            frame,
+            width=30,
+            textvariable=out,
+            font=("Arial", 12)
+        )
+        enter.pack(pady=10)
+
+        # Button
         def end():
             root.destroy()
-        #if wrong is true, also show invalid input, try again
-        if wrong:
-            error=tkinter.Label(root,text='Invalid input. Try again.')
-            error.pack()
-            error.place(x=270,y=250)
-        button=tkinter.Button(root,text='Enter',command=end)
-        button.pack()
-        button.place(x=300,y=370)
+
+        button = tkinter.Button(
+            frame,
+            text='Enter',
+            command=end,
+            width=15,
+            height=2,
+            font=("Arial", 11)
+        )
+        button.pack(pady=15)
+
         root.mainloop()
-        if out.get()!="":
+
+        if out.get() != "":
             return out.get()
 
-#create function show, get stuff
 def show(stuff):
-    #create window and display stuff
-    root=tkinter.Tk()
+    root = tkinter.Tk()
     root.title('Personal Portfolio')
-    root.configure(background='pink')
-    root.minsize(500,500)
-    root.maxsize(1000,1000)
-    root.geometry('700x700+1300+500')
-    tkinter.Message(root,text=stuff,width=700).pack()
+    root.configure(bg='pink')
+    root.geometry('500x400')
+
+    # Main frame to center content
+    frame = tkinter.Frame(root, bg='pink')
+    frame.pack(expand=True)
+
+    # Message display
+    message = tkinter.Message(
+        frame,
+        text=stuff,
+        width=400,
+        bg='pink',
+        font=("Arial", 12)
+    )
+    message.pack(pady=20)
+
+    # Button to close
     def end():
         root.destroy()
-    button=tkinter.Button(root,text='Continue',command=end)
-    button.pack()
-    button.place(x=300,y=500)
-    root.mainloop()
 
-#need to test everything except inputs
+    button = tkinter.Button(
+        frame,
+        text='Continue',
+        command=end,
+        width=15,
+        height=2,
+        font=("Arial", 11)
+    )
+    button.pack(pady=20)
+
+    root.mainloop()
