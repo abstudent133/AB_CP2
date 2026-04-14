@@ -3,11 +3,15 @@
 
 
 #import graphics
-from graphics_tkinter import *
-import geometric_calculator.src.main 
-import movie_recomender_folder.movie_recommeder
-import class_relationship.src.main
-import morse_code
+try:
+    from graphics_tkinter import *
+    import geometric_calculator.src.main 
+    import movie_recomender_folder.movie_recommeder
+    import class_relationship.src.main
+    import morse_code
+except ModuleNotFoundError:
+    pass
+
 
 #main function
 def main_portfolio():
