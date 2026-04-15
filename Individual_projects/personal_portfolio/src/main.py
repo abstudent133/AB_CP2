@@ -1,16 +1,19 @@
 #Main
 #four projects are movie recommender, geometeric calculator, class relationships, and morse code translator
+import sys
 
+sys.path.append("/workspaces/AB_CP2/Individual_projects/geometric_calculator")
+sys.path.append("/workspaces/AB_CP2/Individual_projects/movie_recomender_folder")
+sys.path.append("/workspaces/AB_CP2/Individual_projects/class_relationship")
+sys.path.append("/workspaces/AB_CP2/Individual_projects")
 
-#import graphics
-try:
-    from graphics_tkinter import *
-    from geometric_calculator.src import main as calc_main
-    from movie_recomender_folder import movie_recommeder
-    from class_relationship.src import main as cls_main
-    import Individual_projects.morse_code as morse_code
-except ModuleNotFoundError:
-    pass
+from graphics_tkinter import *
+
+from src_geo import main as calc_main
+import movie_recommeder
+from src_cls import main as cls_main
+import morse_code
+
 
 
 #main function
